@@ -1,0 +1,8 @@
+{
+  "name": "MyApp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CyberW0LF/MyApp.git",
+  "author": "CyberWolf <firsov-k@mail.ru>",
+  "license": "MIT"
+}
