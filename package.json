@@ -1,8 +1,18 @@
 {
-  "name": "MyApp",
+  "name": "my_app",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
   "repository": "https://github.com/CyberW0LF/MyApp.git",
   "author": "CyberWolf <firsov-k@mail.ru>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
 }
