@@ -1,3 +1,6 @@
+require("dotenv").config();
+const { PORT = 3000 } = process.env;
+
 const express = require("express");
 const app = express();
 
@@ -7,4 +10,4 @@ app.get("/", (req, res) => {
   );
 });
 
-app.listen(3000, _ => console.log("http://localhost:3000"));
+app.listen(PORT, _ => console.log(`http://localhost:${PORT}`));
