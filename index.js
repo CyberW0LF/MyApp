@@ -1,13 +1,30 @@
 require("dotenv").config();
-const { PORT = 3000 } = process.env;
+require("colors");
+const { PORT = 3000, IP_ADDRESS } = process.env;
 
 const express = require("express");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send(
-    "<h3>Ура, Работает!</h3> <img src='http://animated.name/uploads/posts/2016-08/1471201938_602.gif' />"
-  );
-});
+require("./database/mongo").connect();
 
-app.listen(PORT, _ => console.log(`http://localhost:${PORT}`));
+// Middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(morgan("dev"));
+ 
+app.set("views", "./views");
+app.set("view engine", "pug");
+app.use(express.static("views"));
+
+//Routes
+app.use("/", require("./routes/main"));
+app.use("/users", require("./routes/users"));
+
+// Listening port
+const msg =
+  `\u2714 - Server running! \u25BA `.blue +
+  `http://${IP_ADDRESS}:${PORT}`.magenta;
+
+app.listen(PORT, err => console.log(err || msg));
