@@ -24,7 +24,7 @@ module.exports = {
         token: getToken(newUser)
       });
     } catch (error) {
-      res.status(400).json({ success: false, message: "Db Error" });
+      res.status(400).json({ success: false, message: error });
     }
   },
   signIn: async (req, res) => {
