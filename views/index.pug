@@ -8,8 +8,12 @@ html(lang="en")
         title Document
     body
         .main
-            h3 Ура, Работает!
-            img(src='http://animated.name/uploads/posts/2016-08/1471201938_602.gif') 
+            h3 Форма для теста базы
+            //img(src='http://animated.name/uploads/posts/2016-08/1471201938_602.gif') 
+            form(action="/", method="post")
+                input(type="text" name='email' placeholder='email')
+                input(type="text" name='password' placeholder='password')
+                input(type="submit", value="Зарегистрироваться")
 
 
     script(src="js/main.js")

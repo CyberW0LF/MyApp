@@ -43,5 +43,13 @@ module.exports = {
   },
   secret: (req, res) => {
     res.send("secret");
+  },
+  test: (req, res) => {
+    const { email, password } = req.body;
+    const user = new User({ email, password });
+    user.save(err => {
+      if (err) return res.status(400).json(err);
+      res.send("Вы зарегистрированы.");
+    });
   }
 };
